@@ -9,8 +9,8 @@ Both perform reasonably, but not particularly well. To run the code, you'll need
 
 Samples from the adversarial autoencoder:
 
-![Adversarial autoencoder samples](https://raw.github.com/igul222/mnist_generative/blob/master/autoencoder.png)
+![Adversarial autoencoder samples](https://raw.githubusercontent.com/igul222/mnist_generative/master/autoencoder.png)
 
 Samples from the GAN:
 
-![GAN samples](https://raw.github.com/igul222/mnist_generative/blob/master/gan.png)
+![GAN samples](https://raw.githubusercontent.com/igul222/mnist_generative/master/gan.png)
