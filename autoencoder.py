@@ -18,7 +18,7 @@ BATCH_SIZE   = 100
 INPUT_DIM    = 784
 HIDDEN_DIM   = 1024
 LATENT_DIM   = 8
-LATENT_STDEV = 5
+LATENT_STDEV = 10
 EPOCHS       = 100
 
 theano_srng = RandomStreams(seed=234)
