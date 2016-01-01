@@ -1,5 +1,8 @@
 """Adversarial Autoencoder for MNIST."""
 
+import os, sys
+sys.path.append(os.getcwd())
+
 import numpy
 import theano
 import theano.tensor as T
@@ -15,7 +18,10 @@ BATCH_SIZE   = 100
 INPUT_DIM    = 784
 HIDDEN_DIM   = 1024
 LATENT_DIM   = 8
-LATENT_STDEV = 10
+LATENT_STDEV = 5
+EPOCHS       = 100
+
+theano_srng = RandomStreams(seed=234)
 
 def Layer(name, n_in, n_out, batchnorm, inputs):
     """A ReLU layer, optionally with batch norm."""
@@ -43,7 +49,6 @@ def discriminator(inputs):
         swft.ops.Linear('Discriminator.Layer3', HIDDEN_DIM, 1, output).flatten()
     )
 
-theano_srng = RandomStreams(seed=234)
 def noise(n_samples):
     output = theano_srng.normal(size=(n_samples,LATENT_DIM))
     return swft.floatX(LATENT_STDEV) * output
@@ -126,7 +131,7 @@ swft.train(
     print_vars  = [reg_cost, reconst_cost, discrim_cost],
     train_data  = train_data,
     dev_data    = dev_data,
-    epochs      = 100,
+    epochs      = EPOCHS,
     callback    = generate_images,
     print_every = 1000
 )
